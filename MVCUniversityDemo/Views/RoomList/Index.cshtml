@@ -1,0 +1,12 @@
+﻿<h2>Class Room List</h2>
+
+@using (Html.BeginForm("ChangeSelection", "RoomList", FormMethod.Post, new { role = "form" }))
+{
+	@Html.DropDownList("lstRoomSelector", (SelectList)ViewBag.RoomList, new { onchange = "this.form.submit();" })
+}
+<br />
+@foreach (var item in ViewBag.ClassRoomReservationList.ReservedRoomList)
+{
+	<div>@item.Name @item.Reserved</div>
+}
+
